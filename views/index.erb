@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>あしあと日記</title>
+
+  <link href="css/markdown.css" rel="stylesheet"></link>
+  <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet"></link>
+
+  <style type="text/css">
+    #header {
+      padding-bottom: 40px;
+      border-bottom: solid 1px #eee;
+    }
+
+    #body {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <img src="img/footstep.png">
+    </div>
+  </div>
+  <div id="body">
+    <div class="container">
+      <div class="row">
+        <div class="span10">
+          <%= @content %>
+        </div>
+        <div class="span2">
+          <img src="http://youchan.org/youchan_square.jpg" width="64">
+          <p>youchan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
