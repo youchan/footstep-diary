@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'sinatra-contrib'
-gem 'thin'
+gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 
-gem 'redcarpet'
+#gem 'haml'
+#gem 'coffee-script'
+#gem 'sass'
+
+#gem 'redcarpet'
