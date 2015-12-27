@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+gem 'sinatra', '1.4.5'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 
 #gem 'haml'
