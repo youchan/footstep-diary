@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     jsmin (1.0.1)
-    rack (1.6.0)
+    rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -23,5 +23,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  sinatra
+  sinatra (= 1.4.5)
   sinatra-assetpack
+
+BUNDLED WITH
+   1.10.6
