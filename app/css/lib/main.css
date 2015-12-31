@@ -1,0 +1,65 @@
+@font-face {
+    font-family: HuiFont;
+    src: url(../font/HuiFont29.woff);
+}
+
+body {
+  font-family: HuiFont;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.navbar-inner {
+  padding: 0 20px;
+  background-color: lightblue;
+  margin-bottom: 26px;
+  min-height: 60px;
+}
+
+.container-narrow {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.navbar img {
+  float: left;
+  padding: 10px;
+  width: 40px;
+  border-radius: 40px;
+}
+
+.navbar .title {
+  padding: 12px;
+  font-size: 180%;
+  margin: 0;
+}
+
+.content .error-message {
+  padding: 12px;
+  background: #fee;
+  color: red;
+  border-radius: 4px;
+}
+
+.content .error-message p {
+  margin: 0;
+}
+
+.content .date {
+  margin-bottom: 4px;
+}
+
+.entry h1 {
+  background: #fffff8;
+  padding: 4px;
+  border-top: double #fdd;
+  border-bottom: double #fdd;
+  margin-top: 8px;
+}
+
+.entry h2 {
+  border-left: solid 16px #fcc;
+  border-bottom: solid 1px #fcc;
+  padding: 8px;
+}

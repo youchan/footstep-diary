@@ -1,14 +1,23 @@
 !!!
-%html
+%html{lang: "ja"}
   %head
     %meta{ charset: "utf-8" }
-    %title youchan.org
-    != css :main
+    %title あしあと日記
+    %link(rel="stylesheet" href="css/main.css")
 
   %body
-    #header
-      .header-container
-        %img{ src: "http://youchan.org/youchan_square.jpg", width: 24 }
-        %p.title youchan.org
-    #body
-      %div{ style: "width: 800px; height: 400px; background-color: #882" }
+    .navbar
+      .navbar-inner
+        .container-narrow
+          %img{ src: "http://youchan.org/youchan_square.jpg", width: 24 }
+          %p.title あしあと日記
+    .content
+      .container-narrow
+        - if @error
+          .error-message
+            %p= @error
+        - @contents.each_with_index do |data, i|
+          - if i > 0
+            %hr
+          %h2.date= data[:date]
+          .entry!= data[:entry]
