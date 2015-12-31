@@ -1,12 +1,15 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    haml (4.0.7)
+      tilt
     jsmin (1.0.1)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    redcarpet (3.3.4)
     sinatra (1.4.5)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -23,8 +26,10 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  haml
+  redcarpet
   sinatra (= 1.4.5)
   sinatra-assetpack
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
