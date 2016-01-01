@@ -4,9 +4,11 @@ require 'redcarpet'
 
 class App < Sinatra::Base
 
-  set :root, File.dirname(__FILE__)
-
   register Sinatra::AssetPack
+
+  configure do
+    set :root, File.dirname(__FILE__)
+  end
 
   assets do
     serve '/js', from: 'app/js'
@@ -27,8 +29,8 @@ class App < Sinatra::Base
 
   get "/" do
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, hard_wrap: true)
-    @contents = Dir.glob("data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md").reverse.map do |filename|
-      { date: filename[/data\/(\d{4}-\d{2}-\d{2})\.md/, 1], entry: markdown.render(File.read(filename))}
+    @contents = Dir.glob("#{settings.root}/data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md").reverse.map do |filename|
+      { date: filename[/(\d{4}-\d{2}-\d{2})\.md/, 1], entry: markdown.render(File.read(filename))}
     end
     haml :index
   end
@@ -37,7 +39,7 @@ class App < Sinatra::Base
     begin
       date = params[:captures].first
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, hard_wrap: true)
-      entry = markdown.render(File.read("data/#{date}.md"))
+      entry = markdown.render(File.read("#{settings.root}/data/#{date}.md"))
       @contents = [{ date: date, entry: entry }]
     rescue
       @contents = []
