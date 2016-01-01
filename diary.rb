@@ -33,11 +33,12 @@ class App < Sinatra::Base
     haml :index
   end
 
-  get "/:date" do
+  get /\/(\d{4}-\d{2}-\d{2})/ do
     begin
+      date = params[:captures].first
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, hard_wrap: true)
-      entry = markdown.render(File.read("data/#{params[:date]}.md"))
-      @contents = [{ date: params[:date], entry: entry }]
+      entry = markdown.render(File.read("data/#{date}.md"))
+      @contents = [{ date: date, entry: entry }]
     rescue
       @contents = []
       @error = "お探しのページは見つかりませんでした…"
