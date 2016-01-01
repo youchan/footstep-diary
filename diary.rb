@@ -39,6 +39,7 @@ class App < Sinatra::Base
       entry = markdown.render(File.read("data/#{params[:date]}.md"))
       @contents = [{ date: params[:date], entry: entry }]
     rescue
+      @contents = []
       @error = "お探しのページは見つかりませんでした…"
       status 404
     end
