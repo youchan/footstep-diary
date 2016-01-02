@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/assetpack'
 require 'redcarpet'
+require 'builder'
+require 'rss'
 
 class App < Sinatra::Base
 
@@ -33,6 +35,16 @@ class App < Sinatra::Base
       { date: filename[/(\d{4}-\d{2}-\d{2})\.md/, 1], entry: markdown.render(File.read(filename))}
     end
     haml :index
+  end
+
+  get '/rss' do
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, hard_wrap: true)
+    @entries = Dir.glob("#{settings.root}/data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md").reverse.take(20).map do |filename|
+      title = File.readlines(filename)[0].sub(/\A\#+ +/, '')
+      { date: filename[/(\d{4}-\d{2}-\d{2})\.md/, 1], title: title, description: markdown.render(File.read(filename)) }
+    end
+
+    builder :rss
   end
 
   get /\/(\d{4}-\d{2}-\d{2})/ do

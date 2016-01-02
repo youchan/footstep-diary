@@ -4,6 +4,7 @@ gem 'sinatra', '1.4.5'
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
 
 gem 'haml'
+gem 'builder'
 #gem 'coffee-script'
 #gem 'sass'
 

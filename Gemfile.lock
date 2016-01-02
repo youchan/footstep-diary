@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    builder (3.2.2)
     haml (4.0.7)
       tilt
     jsmin (1.0.1)
@@ -26,6 +27,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  builder
   haml
   redcarpet
   sinatra (= 1.4.5)
