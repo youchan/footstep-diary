@@ -22,7 +22,11 @@ class App < Sinatra::Base
     ]
 
     css :main, '/css/main.css', [
-      '/css/lib/**/*.css'
+      '/css/lib/main.css'
+    ]
+
+    css :milligram, '/css/milligram.css', [
+      '/css/lib/milligram.css'
     ]
 
     js_compression :jsmin
