@@ -11,7 +11,8 @@ body {
 .content {
   font-family: HuiFont;
   margin-top: 120px;
-  font-size: 1.2em;
+  font-size: 1.6em;
+  line-height: 1;
 }
 
 .navbar-inner {
@@ -65,7 +66,7 @@ body {
 }
 
 .content .date {
-  font-size: 1.4em;
+  font-size: 110%;
   margin-bottom: 4px;
 }
 
@@ -90,7 +91,7 @@ body {
 }
 
 .entry h1 {
-  font-size: 1.8em;
+  font-size: 120%;
   background: #fffff8;
   padding: 4px;
   border-top: double #fdd;
@@ -99,7 +100,7 @@ body {
 }
 
 .entry h2 {
-  font-size: 1.6em;
+  font-size: 110%;
   border-left: solid 16px #fcc;
   border-bottom: solid 1px #fcc;
   padding: 8px;
