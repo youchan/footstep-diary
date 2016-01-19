@@ -1,36 +1,17 @@
 require 'sinatra/base'
-require 'sinatra/assetpack'
+require 'sinatra/asset_pipeline'
 require 'redcarpet'
 require 'builder'
 require 'rss'
 
 class App < Sinatra::Base
-
-  register Sinatra::AssetPack
-
   configure do
     set :root, File.dirname(__FILE__)
-  end
 
-  assets do
-    serve '/js', from: 'app/js'
-    serve '/css', from: 'app/css'
-    serve '/images', from: 'app/images'
+    set :assets_precompile, %w(application.css)
+    set :assets_css_compressor, :sass
 
-    js :app, '/js/app.js', [
-      '/js/lib/**/*.js'
-    ]
-
-    css :main, '/css/main.css', [
-      '/css/lib/main.css'
-    ]
-
-    css :milligram, '/css/milligram.css', [
-      '/css/lib/milligram.css'
-    ]
-
-    js_compression :jsmin
-    css_compression :simple
+    register Sinatra::AssetPipeline
   end
 
   get "/" do

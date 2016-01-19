@@ -4,8 +4,8 @@
     %meta{ charset: "utf-8" }
     %title あしあと日記
     %link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css")
-    %link(rel="stylesheet" href="css/milligram.css")
-    %link(rel="stylesheet" href="css/main.css")
+    = stylesheet_tag 'application'
+
     :javascript
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,7 +20,7 @@
       %nav.navigation
         %section.container
           %a.navigation-title{ href: '/' }
-            %img.logo{ src: '/images/footstep.png' }
+            %img.logo{ src: asset_path('/images/footstep.png') }
           %a.float-right{ href: 'http://youchan.org' }
             %img.icon{ src: '/images/youchan_square.jpg' }
       %section.content.container

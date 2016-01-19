@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'sinatra', '1.4.5'
-gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+gem 'sinatra-asset-pipeline'
 
 gem 'haml'
 gem 'builder'
 #gem 'coffee-script'
-#gem 'sass'
+gem 'sass'
 
 gem 'redcarpet'
