@@ -11,8 +11,9 @@ body {
 .content {
   font-family: HuiFont;
   margin-top: 120px;
-  font-size: 1.6em;
+  font-size: 1.8em;
   line-height: 1;
+  letter-spacing: 0;
 }
 
 .navbar-inner {
