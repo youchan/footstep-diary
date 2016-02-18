@@ -36,7 +36,9 @@ class App < Sinatra::Base
     begin
       date = params[:captures].first
       markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, hard_wrap: true)
-      entry = markdown.render(File.read("#{settings.root}/data/#{date}.md"))
+      md_content = File.read("#{settings.root}/data/#{date}.md")
+      entry = markdown.render(md_content)
+      @title = md_content.split("\n").first.sub(/^#(.+\Z)/, '\1').strip if md_content =~ /^# /
       @contents = [{ date: date, entry: entry }]
     rescue
       @contents = []

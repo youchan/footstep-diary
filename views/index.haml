@@ -2,7 +2,7 @@
 %html{lang: "ja"}
   %head
     %meta{ charset: "utf-8" }
-    %title あしあと日記
+    %title= @title || "あしあと日記"
     %link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css")
     = stylesheet_tag 'application'
 
