@@ -8,18 +8,6 @@ body {
   padding: 0;
 }
 
-.content {
-  font-family: HuiFont;
-  margin-top: 120px;
-  font-size: 1.8em;
-  line-height: 1;
-  letter-spacing: 0;
-}
-
-code {
-  font-family: HuiFont;
-}
-
 .navbar-inner {
   padding: 0 20px;
   background-color: lightblue;
@@ -59,54 +47,66 @@ code {
   margin: 0;
 }
 
-.content .error-message {
-  padding: 12px;
-  background: #fee;
-  color: red;
-  border-radius: 4px;
+.content {
+  margin-top: 120px;
+
+  .date {
+    font-family: HuiFont;
+    font-size: 140%;
+    margin-bottom: 4px;
+  }
+
+  .entry {
+    font-size: 1.2em;
+
+    h1 {
+      font-family: HuiFont;
+      font-size: 180%;
+      background: #fffff8;
+      padding: 4px;
+      border-top: double #fdd;
+      border-bottom: double #fdd;
+      margin-top: 8px;
+    }
+
+    h2 {
+      font-size: 110%;
+      border-left: solid 16px #fcc;
+      border-bottom: solid 1px #fcc;
+      padding: 8px;
+    }
+  }
+
+  .error-message {
+    padding: 12px;
+    background: #fee;
+    color: red;
+    border-radius: 4px;
+  }
+
+  .error-message p {
+    margin: 0;
+  }
+
+  .date a:link {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .date a:visited {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .date a:active {
+    color: #000;
+    text-decoration: none;
+  }
+
+  .date a:hover {
+    color: #f44;
+    text-decoration: none;
+  }
 }
 
-.content .error-message p {
-  margin: 0;
-}
 
-.content .date {
-  font-size: 110%;
-  margin-bottom: 4px;
-}
-
-.content .date a:link {
-  color: #000;
-  text-decoration: none;
-}
-
-.content .date a:visited {
-  color: #000;
-  text-decoration: none;
-}
-
-.content .date a:active {
-  color: #000;
-  text-decoration: none;
-}
-
-.content .date a:hover {
-  color: #f44;
-  text-decoration: none;
-}
-
-.entry h1 {
-  font-size: 120%;
-  background: #fffff8;
-  padding: 4px;
-  border-top: double #fdd;
-  border-bottom: double #fdd;
-  margin-top: 8px;
-}
-
-.entry h2 {
-  font-size: 110%;
-  border-left: solid 16px #fcc;
-  border-bottom: solid 1px #fcc;
-  padding: 8px;
-}
