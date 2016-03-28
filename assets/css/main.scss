@@ -3,6 +3,11 @@
     src: url(../font/HuiFont29.woff);
 }
 
+@font-face {
+    font-family: InputMono;
+    src: url(../font/InputMono-Regular.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -74,6 +79,11 @@ body {
       border-left: solid 16px #fcc;
       border-bottom: solid 1px #fcc;
       padding: 8px;
+    }
+
+    code {
+      font-family: InputMono;
+      font-size: 1.0em;
     }
   }
 

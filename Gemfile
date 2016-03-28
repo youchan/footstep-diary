@@ -9,3 +9,4 @@ gem 'builder'
 gem 'sass'
 
 gem 'redcarpet'
+gem 'rouge'

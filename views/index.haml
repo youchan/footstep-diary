@@ -32,4 +32,4 @@
             %hr
           %h2.date
             %a{ href: "/#{data[:date]}" }= data[:date]
-          .entry!= data[:entry]
+          .entry!= preserve data[:entry]
