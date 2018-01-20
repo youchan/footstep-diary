@@ -64,7 +64,7 @@ class App < Sinatra::Base
   end
 
   def markdown
-    @markdown ||= Redcarpet::Markdown.new(HTMLwithHighlight, autolink: true, tables: true, hard_wrap: true, fenced_code_blocks: true)
+    @markdown ||= Redcarpet::Markdown.new(HTMLwithHighlight, autolink: true, tables: true, hard_wrap: true, fenced_code_blocks: true, strikethrough: true)
   end
 end
 
