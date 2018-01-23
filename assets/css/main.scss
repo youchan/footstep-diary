@@ -35,15 +35,17 @@ body {
   margin: 0 auto;
 }
 
-.navigation img.icon {
-  margin-top: 10px;
-  width: 40px;
-  border-radius: 40px;
-}
+.navigation {
+  img.icon {
+    margin-top: 10px;
+    width: 40px;
+    border-radius: 40px;
+  }
 
-.navigation img.logo {
-  padding: 10px;
-  height: 64px;
+  img.logo {
+    padding: 10px;
+    height: 64px;
+  }
 }
 
 .navbar .title {
@@ -62,11 +64,11 @@ body {
   }
 
   .entry {
-    font-size: 1.2em;
+    font-size: 1.6rem;
 
     h1 {
       font-family: HuiFont;
-      font-size: 180%;
+      font-size: 3.2rem;
       background: #fffff8;
       padding: 4px;
       border-top: double #fdd;
@@ -75,10 +77,16 @@ body {
     }
 
     h2 {
-      font-size: 110%;
+      font-size: 2.6rem;
+      font-weight: 400;
       border-left: solid 16px #fcc;
       border-bottom: solid 1px #fcc;
       padding: 8px;
+    }
+
+    h3 {
+      font-size: 2.6rem;
+      font-weight: 300;
     }
 
     code {
