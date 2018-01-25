@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'sinatra', '1.4.5'
+ruby '2.5.0'
+
+gem 'sinatra'
 gem 'sinatra-asset-pipeline'
 
 gem 'haml'
