@@ -3,7 +3,7 @@ GEM
   specs:
     builder (3.2.3)
     concurrent-ruby (1.0.5)
-    ffi (1.9.15)
+    ffi (1.9.18)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -36,7 +36,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   builder
