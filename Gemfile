@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'sinatra'
-gem 'sinatra-asset-pipeline'
+gem 'sprockets'
+gem 'sprockets-helpers'
 
 gem 'haml'
 gem 'builder'

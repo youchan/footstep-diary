@@ -1,5 +1,6 @@
 require 'sinatra/base'
-require 'sinatra/asset_pipeline'
+require 'sprockets'
+require 'sinatra/sprockets-helpers'
 require 'redcarpet'
 require 'builder'
 require 'rss'
@@ -23,13 +24,35 @@ class HTMLwithHighlight < Redcarpet::Render::HTML
 end
 
 class App < Sinatra::Base
+  register Sinatra::Sprockets::Helpers
+  #set :root, File.dirname(__FILE__)
+  set :sprockets, Sprockets::Environment.new(root)
+  set :assets_prefix, '/assets'
+  set :digest_assets, true
+
   configure do
-    set :root, File.dirname(__FILE__)
+    sprockets.append_path File.join(root, 'assets', 'stylesheets')
 
-    set :assets_precompile, %w(application.css)
-    set :assets_css_compressor, :sass
+    Sprockets::Helpers.configure do |config|
+      config.environment = sprockets
+      config.prefix      = assets_prefix
+      config.digest      = digest_assets
+      config.public_path = public_folder
 
-    register Sinatra::AssetPipeline
+      # Force to debug mode in development mode
+      # Debug mode automatically sets
+      # expand = true, digest = false, manifest = false
+      config.debug       = true if development?
+    end
+  end
+
+  helpers do
+    include Sprockets::Helpers
+  end
+
+  get "/assets/*" do
+    env["PATH_INFO"].sub!("/assets", "")
+    settings.sprockets.call(env)
   end
 
   get "/" do
