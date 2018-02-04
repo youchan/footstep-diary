@@ -32,6 +32,7 @@ class App < Sinatra::Base
 
   configure do
     sprockets.append_path File.join(root, 'assets', 'stylesheets')
+    sprockets.append_path File.join(root, 'assets', 'images')
 
     Sprockets::Helpers.configure do |config|
       config.environment = sprockets
