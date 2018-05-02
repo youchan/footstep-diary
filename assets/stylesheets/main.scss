@@ -94,6 +94,18 @@ body {
       font-size: 1.0em;
     }
 
+    div.highlight {
+      margin-bottom: 2.5rem;
+
+      pre {
+        margin: 0;
+
+        code {
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+
     img {
       width: 480px;
     }
