@@ -3,6 +3,13 @@
   %head
     %meta{ charset: "utf-8" }
     %title= @title || "あしあと日記"
+    %meta{ name: "twitter:card", content: "summary" }
+    %meta{ name: "twitter:site", content: "@youchan" }
+    %meta{ property: "og:url", content: request.url }
+    %meta{ property: "og:title", content: "あしあと日記" }
+    %meta{ property: "og:description", content: @title || "あしあと日記" }
+    %meta{ property: "og:image", content: url("/images/youchan_square.jpg") }
+
     %link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css")
     = stylesheet_tag 'application'
 
