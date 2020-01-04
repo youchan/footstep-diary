@@ -39,4 +39,8 @@
             %hr
           %h2.date
             %a{ href: "/#{data[:date]}" }= data[:date]
-          .entry!= preserve data[:entry]
+          - data[:entries].each do |entry|
+            .entry
+              %h1
+                %a{ href:"/#{data[:date]}/#{entry[:title]}" }= preserve(markdown.render(entry[:title]))
+              = preserve(markdown.render(entry[:content]))

@@ -51,6 +51,18 @@ class App < Sinatra::Base
     include Sprockets::Helpers
   end
 
+  def split_content(content)
+    title = ""
+    content.split("\n").chunk do |line|
+      if line =~ /\A\# +(.+)/
+        title = $1
+      end
+      title
+    end.map do |chunk|
+      {title: chunk[0], content: chunk[1].drop(1).join("\n")}
+    end
+  end
+
   get "/assets/*" do
     env["PATH_INFO"].sub!("/assets", "")
     settings.sprockets.call(env)
@@ -58,7 +70,7 @@ class App < Sinatra::Base
 
   get "/" do
     @contents = Dir.glob("#{settings.root}/data/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md").sort.reverse.take(20).map do |filename|
-      { date: filename[/(\d{4}-\d{2}-\d{2})\.md/, 1], entry: markdown.render(File.read(filename))}
+      { date: filename[/(\d{4}-\d{2}-\d{2})\.md/, 1], entries: split_content(File.read(filename))}
     end
     haml :index
   end
@@ -72,13 +84,29 @@ class App < Sinatra::Base
     builder :rss
   end
 
+  get /\/(\d{4}-\d{2}-\d{2})\/(.+)/ do
+    begin
+      date = params[:captures].first
+      @title = params[:captures][1]
+
+      filename = "#{settings.root}/data/#{date}.md"
+      entry = split_content(File.read(filename)).find{|entry| entry[:title] == @title}
+      raise unless entry
+      @contents = [{ date: date, entries: [entry] }]
+    rescue
+      @contents = []
+      @error = "お探しのページは見つかりませんでした…"
+      status 404
+    end
+    haml :index
+  end
+
   get /\/(\d{4}-\d{2}-\d{2})/ do
     begin
       date = params[:captures].first
-      md_content = File.read("#{settings.root}/data/#{date}.md")
-      entry = markdown.render(md_content)
-      @title = md_content.split("\n").first.sub(/^#(.+\Z)/, '\1').strip if md_content =~ /^# /
-      @contents = [{ date: date, entry: entry }]
+      filename = "#{settings.root}/data/#{date}.md"
+      @title = date
+      @contents = [{ date: date, entries: split_content(File.read(filename)) }]
     rescue
       @contents = []
       @error = "お探しのページは見つかりませんでした…"

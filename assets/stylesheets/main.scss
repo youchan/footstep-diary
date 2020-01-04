@@ -79,6 +79,34 @@ hr {
       border-top: double #fdd;
       border-bottom: double #fdd;
       margin-top: 8px;
+
+      code {
+        background: inherit;
+      }
+
+      a:link {
+        color: #606c76;
+        text-decoration: none;
+      }
+
+      a:visited {
+        color: #606c76;
+        text-decoration: none;
+      }
+
+      a:active {
+        color: #606c76;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #f44;
+        text-decoration: none;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
     }
 
     h2 {
@@ -128,17 +156,17 @@ hr {
   }
 
   .date a:link {
-    color: #000;
+    color: #606c76;
     text-decoration: none;
   }
 
   .date a:visited {
-    color: #000;
+    color: #606c76;
     text-decoration: none;
   }
 
   .date a:active {
-    color: #000;
+    color: #606c76;
     text-decoration: none;
   }
 
