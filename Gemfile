@@ -9,6 +9,7 @@ gem 'sprockets-helpers'
 gem 'haml'
 gem 'builder'
 gem 'sass'
+gem 'addressable'
 
 gem 'redcarpet'
 gem 'rouge'

@@ -6,6 +6,7 @@ require 'builder'
 require 'rss'
 require 'rouge'
 require 'rouge/plugins/redcarpet'
+require 'addressable'
 
 class HTMLwithHighlight < Redcarpet::Render::HTML
   include Rouge::Plugins::Redcarpet
